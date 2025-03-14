@@ -1,0 +1,8 @@
+#Contatore Luci
+
+- platform: template
+  sensors:
+    luci_accese:
+      friendly_name: "Luci Accese"
+      icon_template: mdi:lightbulb-group-outline
+      value_template: "{{ states.light | rejectattr('attributes.entity_id', 'defined')|selectattr('entity_id','in',label_entities('Luci'))| selectattr('state', 'eq', 'on') | list | count }}"

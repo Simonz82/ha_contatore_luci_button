@@ -1,0 +1,63 @@
+          type: custom:button-card
+          entity: script.luci_off #script per spegnere tutte le luci
+          name: LUCI ON/OFF
+          tap_action:
+            action: toggle
+          styles:
+            name:
+              - color: |
+                  [[[
+                    return (Number(states['sensor.luci_accese'].state) == 0) ? 'white' : 'red'; 
+                  ]]]
+            card:
+              - box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3)
+              - height: 70px #altezza card
+              - width: 100px #larghezza card
+              - font-size: 12px
+              - border: |
+                  [[[
+                    return (Number(states['sensor.luci_accese'].state) == 0) ? '2px solid rgb(216, 235, 52, 30%)' : '3px solid yellow';
+                  ]]]   
+            grid:
+              - position: relative
+            custom_fields:
+              notification:
+                - background-color: |
+                    [[[
+                      if (states['sensor.luci_accese'].state == 0) 
+                        return "green";
+                      return "red";
+                    ]]]
+                - border-radius: 50%
+                - position: absolute
+                - left: 60%
+                - top: 10%
+                - height: 22px
+                - width: 22px
+                - font-size: 12px
+                - line-height: 22px
+            icon:
+              - color: |
+                  [[[
+                    console.log("Stato sensore:", states['sensor.luci_accese'].state); 
+                    return (Number(states['sensor.luci_accese'].state) === 0) ? 'white' : 'yellow'; 
+                  ]]]
+              - width: 50px
+              - height: 50px
+              - animation: |
+                  [[[
+                    return (Number(states['sensor.luci_accese'].state) > 0) ? 'glow 1.5s infinite' : 'none'; 
+                  ]]]
+          icon: |
+            [[[
+              return (Number(states['sensor.luci_accese'].state) === 0) ? 'mdi:lightbulb-outline' : 'mdi:lightbulb-on'; 
+            ]]]
+          custom_fields:
+            notification: |
+              [[[ return states['sensor.luci_accese'].state ]]] 
+          extra_styles: |
+            @keyframes glow {
+              0% { opacity: 1; }
+              50% { opacity: 0.5; }
+              100% { opacity: 1; }
+            }
