@@ -1,9 +1,9 @@
-<h2><span style="text-decoration: underline;"><strong>🔢 count_light-button</strong></span></h2>
+<h2><span style="text-decoration: underline;"><strong>🔢 Contatore luci accese</strong></span></h2>
 
-CARD per mostrare informazioni sulle nostre luci accese
+CARD per mostrare quante luci accese abbiamo
 <p><img src="example/example1.jpg" alt="" /></p>
 
-<p>Volevo condividere una scheda che ho creato con l'aiuto delle varie community per visualizzare le informazioni sulle luci accese di casa.</p>
+<p>Volevo condividere una scheda che ho creato con l'aiuto delle varie community per visualizzare la numerica di luci accese in casa e spegnerle tutte insieme.</p>
 
 <p dir="auto">Istruzioni:</p>
 
@@ -11,13 +11,12 @@ da Hacs, installare:
 1. button-card
 
 poi ...
+1. aggiungere le etichette alle luci nelle proprietà di ogni entità (metodo che ho usato io), io ho usato etichetta "Luci"
 1. nel file sensor.yaml, inserire il contenuto di sensor.yaml, se non si dispone del file:
     - è necessario creare sensor.yaml nella cartella config/
     - aprire il file configuration.yaml e inserire questa riga: sensor: !include sensor.yaml
 2. in HA create una card manuale e incollate il contenuto del file: card.yaml
-3. all'interno del codice della card e del codice inserito nel sensor.yaml, dovete andare a sostituire tutti i miei sensori con i vostri.
-4. aggiungere le etichette alle luci nelle proprità di ogni entità (metodo che ho usato io)
-5. creare uno script per spegnere tutte le luci con un click collegandosi alle etichette create
+3. creare uno script per spegnere tutte le luci con un click collegandosi alle etichette create
 
 
 <strong>Alla fine ci troveremo ad avere questo risultato finale:</strong><br />
