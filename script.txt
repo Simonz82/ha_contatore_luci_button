@@ -1,0 +1,8 @@
+sequence:
+  - action: light.turn_off
+    metadata: {}
+    data: {}
+    target:
+      label_id: luci
+alias: Luci OFF
+description: spegne tutte le luci di casa
